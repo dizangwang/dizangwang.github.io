@@ -1,0 +1,71 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+</head>
+
+
+<body>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts-nightly@5.1.2-dev.20210512/dist/echarts.min.js"></script>
+    <div id="main" style="width: 100%;height:400px;"></div>
+</body>
+
+
+<script>
+    window.onload = function() {
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        let time = 60 * 60 * 24 * 1000;
+        let date1 = new Date();
+        date1.setHours(0)
+        date1.setMinutes(0);
+        date1.setSeconds(0);
+        date1.setMilliseconds(0);
+        date1 = date1.getTime();
+        let date2 = new Date().getTime()
+
+        console.log(date2 - date1);
+        // 指定图表的配置项和数据
+
+        xunhuan()
+        setInterval(() => {
+            xunhuan()
+        }, 2000);
+
+
+
+        function xunhuan() {
+            let date2 = new Date().getTime()
+
+            let yiguo = date2 - date1
+            let shengyu = time - yiguo
+
+            myChart.setOption({
+                tooltip: {
+                    trigger: 'item'
+                },
+                color: ['red', 'green'],
+                series: [{
+                    name: '人生',
+                    type: 'pie',
+                    radius: '50%',
+                    data: [{
+                        value: yiguo,
+                        name: '已过时间' + (yiguo / 1000 / 60 / 60).toFixed(3) + "小时"
+                    }, {
+                        value: shengyu,
+                        name: '剩余时间' + (shengyu / 1000 / 60 / 60).toFixed(3) + "小时"
+                    }, ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }]
+            });
+        }
+    }
+</script>
