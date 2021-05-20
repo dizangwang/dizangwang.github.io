@@ -1,6 +1,12 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+    <style>
+        h3 {
+            text-align: center;
+            color: #694d9f
+        }
+    </style>
+    <title>如救头燃</title>
 </head>
 
 
@@ -9,13 +15,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/echarts-nightly@5.1.2-dev.20210512/dist/echarts.min.js"></script>
     <div id="main" style="width: 100%;height:400px;"></div>
+    <h3>急回头，莫说早，小小孩童易得老！</h3>
+    <h3>窗外日光弹指过，为人能有几多时！</h3>
+    <h3>速念-------------------阿弥陀佛！</h3>
 </body>
 
 
 <script>
     window.onload = function() {
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('main'));
+        var main = document.getElementById('main')
+        main.style.height = window.innerWidth + "px"
+        var myChart = echarts.init(main);
         let time = 60 * 60 * 24 * 1000;
         let date1 = new Date();
         date1.setHours(0)
@@ -31,7 +42,7 @@
         xunhuan()
         setInterval(() => {
             xunhuan()
-        }, 2000);
+        }, 3000);
 
 
 
@@ -42,20 +53,27 @@
             let shengyu = time - yiguo
 
             myChart.setOption({
+                title: {
+                    text: "今日剩余时间" + (shengyu / 1000 / 60 / 60).toFixed(3) + "小时",
+                    left: 'center'
+                },
                 tooltip: {
                     trigger: 'item'
                 },
-                color: ['red', 'green'],
+                color: ['#843900', '#1d953f'],
                 series: [{
                     name: '人生',
                     type: 'pie',
-                    radius: '50%',
+                    radius: '80%',
+                    label: {
+                        position: 'inside',
+                    },
                     data: [{
                         value: yiguo,
-                        name: '已过时间' + (yiguo / 1000 / 60 / 60).toFixed(3) + "小时"
+                        name: '已过' + (yiguo / 1000 / 60 / 60).toFixed(3) + "小时"
                     }, {
                         value: shengyu,
-                        name: '剩余时间' + (shengyu / 1000 / 60 / 60).toFixed(3) + "小时"
+                        name: '剩余' + (shengyu / 1000 / 60 / 60).toFixed(3) + "小时"
                     }, ],
                     emphasis: {
                         itemStyle: {
