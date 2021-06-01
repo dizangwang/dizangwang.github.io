@@ -8,6 +8,12 @@
             height: 40px;
             width: 300px;
             font-size: 20px;
+            font-weight: bolder;
+            padding-left: 20px;
+        }
+        
+        h4 {
+            color: green
         }
         
         body {
@@ -25,22 +31,22 @@
 <body>
     <div>
         <h3 style="color:red">不急不占，无事不占，不动不占。</h3>
-        <h2>以当前时间占</h2>
+        <h2>以当前农历时间占</h2>
         <label for="yue">月</label>
-        <input id="yue" value="5" type="number">
+        <input id="yue" placeholder="请输入农历月份" type="number">
         <br>
         <br>
         <label for="day">日</label>
-        <input id="day" value="5" type="number">
+        <input id="day" placeholder="请输入农历日期" type="number">
         <br>
         <br>
-        <label for="hour">时</label>
+        <label for="hour">时间范围</label>
         <select id="hour">
             <option value="1">23-1</option>
             <option value="2">1-3</option>
             <option value="3">3-5</option>
             <option value="4">5-7</option>
-            <option value="5" selected>7-9</option>
+            <option value="5" >7-9</option>
             <option value="6">9-11</option>
             <option value="7">11-13</option>
             <option value="8">13-15</option>
@@ -55,17 +61,17 @@
     </div>
 
     <div>
-        <h2>以自定义随机数占</h2>
+        <h2>以输入的三位随机数占</h2>
         <label for="one">第一个随机三位数</label>
-        <input id="one" value="544" type="number">
+        <input id="one" placeholder="请输入随机数" type="number">
         <br>
         <br>
         <label for="two">第二个随机三位数</label>
-        <input id="two" value="432" type="number">
+        <input id="two" placeholder="请输入随机数" type="number">
         <br>
         <br>
         <label for="three">第三个随机三位数</label>
-        <input id="three" value="134" type="number">
+        <input id="three" placeholder="请输入随机数" type="number">
 
         <br>
         <br>
