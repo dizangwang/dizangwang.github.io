@@ -1,0 +1,203 @@
+<head>
+    <title></title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px
+        }
+        
+        html {
+            background: #f1edee;
+        }
+        
+        .line {
+            margin-top: 10px;
+            overflow: hidden;
+            padding: 0 10px;
+        }
+        
+        .me {
+            text-align: right;
+        }
+        
+        .you {}
+        
+        .userIcon {
+            height: 37px;
+            width: 37px;
+            border-radius: 5px;
+            vertical-align: top;
+        }
+        
+        .message {
+            word-break: break-all;
+            margin-left: 10px;
+            background: white;
+            font-size: 16px;
+            line-height: 23px;
+            border-radius: 5px;
+            padding: 7px 13px;
+            display: inline-block;
+            color: #0a1d13;
+            position: relative;
+            max-width: 60%;
+        }
+        
+        .memessage {
+            margin-right: 10px;
+            background: #9de972;
+            word-break: break-all;
+            font-size: 16px;
+            line-height: 23px;
+            border-radius: 5px;
+            padding: 7px 13px;
+            display: inline-block;
+            color: #0a1d13;
+            position: relative;
+            max-width: 60%;
+        }
+        
+        .memessage::after {
+            content: '';
+            width: 0px;
+            height: 0px;
+            display: inline-block;
+            position: absolute;
+            border-left: 8px solid #9de972;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            right: -7px;
+            top: 13px;
+        }
+        
+        .message::after {
+            content: '';
+            width: 0px;
+            height: 0px;
+            display: inline-block;
+            position: absolute;
+            border-right: 8px solid white;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            left: -7px;
+            top: 13px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+
+
+<body>
+
+    <div class="con">
+
+
+
+
+    </div>
+
+    <div style="margin-top:40px;text-align: center;padding:20px;border-top:1px solid white">
+        <div style="overflow: hidden;">
+            <img id="AUIMG" src="" style="width:37px;height:37px;float:left;border-radius: 5px;">
+            <img id="BUIMG" style="width:37px;height:37px;float:right;border-radius: 5px;">
+        </div>
+        <button id="a" onclick="aClick()">上传A头像</button>
+        <button id='b' onclick="bClick()">上传B头像</button>
+        <input style="display: none;" id="afile" type="file">
+        <input style="display: none;" id="bfile" type="file">
+    </div>
+    <div style="padding:20px">
+        <textarea placeholder="发送A的消息" id="aText" style="height:60px;display: block;padding:10px;margin:10px 0px;width:100%"></textarea>
+        <button onclick="Afasong()">发送</button>
+        <textarea placeholder="发送B的消息" id="bText" style="height:60px;display: block;padding:10px;margin:10px 0px;width:100%"></textarea>
+        <button onclick="Bfasong()">发送</button>
+    </div>
+
+
+    <script>
+        window.onload = function() {
+            var defaultImg = "data:image/png;base64,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"
+            document.querySelector("#AUIMG").src = defaultImg
+            document.querySelector("#BUIMG").src = defaultImg
+
+
+        }
+        var afile = document.querySelector("#afile");
+        var bfile = document.querySelector("#bfile");
+        var youImg = "";
+        var meImg = "";
+
+        function aClick() {
+            afile.click();
+        }
+
+        function bClick() {
+            bfile.click();
+        }
+        afile.addEventListener('change', function() {
+            var fr = new FileReader();
+            fr.readAsDataURL(this.files[0]);
+            fr.onload = function(ev) {
+                youImg = this.result;
+                document.querySelector("#AUIMG").src = youImg
+
+            }
+        }, false)
+        bfile.addEventListener('change', function() {
+            var fr = new FileReader();
+            fr.readAsDataURL(this.files[0]);
+            fr.onload = function(ev) {
+                meImg = this.result;
+                document.querySelector("#BUIMG").src = meImg
+            }
+        }, false)
+
+
+
+        function Afasong() {
+            if (youImg == "" || meImg == "") {
+                alert("请先上传头像");
+                return
+            }
+            var text = document.querySelector("#aText").value;
+            var str = ` <div class="line">
+            <div class="you">
+                <img class="userIcon" src="${youImg}" alt="">
+                <div class="message">
+                    ${text}
+                </div>
+            </div>
+        </div>`
+            document.querySelector(".con").innerHTML += str
+        }
+
+        function Bfasong() {
+            if (youImg == "" || meImg == "") {
+                alert("请先上传头像");
+                return
+            }
+            var text = document.querySelector("#bText").value;
+            var str = `<div class="line">
+            <div class="me">
+                <div class="memessage">
+                    ${text}
+                </div>
+                <img class="userIcon" src="${meImg}" alt="">
+            </div>
+        </div>`
+            document.querySelector(".con").innerHTML += str
+        }
+    </script>
+
+
+
+
+
+
+</body>
+
+
+<script>
+</script>
