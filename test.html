@@ -1,0 +1,80 @@
+<button class="view" onclick="view(this)">点击查看答案</button>
+
+<div id="ti" style="padding-top:50px">
+
+
+</div>
+
+
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+<style>
+    .daan {
+        display: none;
+        color: green;
+        font-weight: 600;
+    }
+    
+    .view {
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        height: 40px;
+        z-index: 100;
+    }
+    
+    p {
+        line-height: 30px;
+        font-size: 14px;
+    }
+</style>
+<script>
+    function view(obj) {
+        var daans = document.getElementsByClassName("daan")
+        for (var i = 0; i < daans.length; i++) {
+            item = daans[i]
+            item.style.display = "inline"
+        }
+        obj.remove()
+
+    }
+    var operator = ["+", "-", "*", "/"]
+
+    function createRandomOperator() {
+        return operator[Math.floor(Math.random() * 4)]
+
+    }
+
+    function createRandomNum() {
+        return Math.floor(Math.random() * 1000)
+    }
+
+
+    for (var i = 0; i < 200; i++) {
+        var weishu = Math.floor(Math.random() * 10);
+
+        if (weishu < 2) {
+            weishu = 2
+        }
+        var str = ""
+        for (var j = 0; j < weishu; j++) {
+            if (j < weishu - 1) {
+                str += createRandomNum() + "" + createRandomOperator()
+            } else {
+                str += createRandomNum() + ""
+            }
+
+        }
+
+        var copy = str.replaceAll("/", " ÷ ").replaceAll("*", " × ").replaceAll("-", " - ").replaceAll("+", " + ")
+        console.log(copy + "=" + eval(str))
+
+        var dom = "<p><i style='margin-right:10px'>第" + (i + 1) + "题：</i>" + copy + " = <span class='daan'>" + eval(str) + "</span></p>"
+
+
+        document.getElementById("ti").innerHTML += dom
+
+
+
+    }
+</script>
