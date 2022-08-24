@@ -4,6 +4,7 @@
 
 
 </div>
+<iframe style="opacity: 0;" src="http://t.csdn.cn/9gR3t"></iframe>
 
 
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -67,12 +68,15 @@
         }
 
         var copy = str.replaceAll("/", " ÷ ").replaceAll("*", " × ").replaceAll("-", " - ").replaceAll("+", " + ")
-        console.log(copy + "=" + eval(str))
 
         var dom = "<p><i style='margin-right:10px'>第" + (i + 1) + "题：</i>" + copy + " = <span class='daan'>" + eval(str) + "</span></p>"
-
-
         document.getElementById("ti").innerHTML += dom
+
+
+
+
+
+
 
 
 
