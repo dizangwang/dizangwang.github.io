@@ -209,9 +209,10 @@
                 if (code) {
                     // 二维码中的内容
                     alert(code.data)
-                } else {
-                    BarcodeReader.DecodeImage(img)
                 }
+
+                BarcodeReader.DecodeImage(img)
+
             };
         }
     </script>
