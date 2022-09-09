@@ -122,14 +122,26 @@
     <canvas id="qrcanvas" style="display:none;"></canvas>
     <!-- 引入二维码解析代码 -->
     <script src="index.js"></script>
-    <script src="jsQR.js"></script>
     <!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/40076/DecoderWorker.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/40076/exif.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/40076/BarcodeReader.js"></script> -->
 
+    <script src="https://unpkg.com/javascript-barcode-reader@0.6.9/dist/javascript-barcode-reader.umd.min.js"></script>
+
     <script>
         init("environment")
+            // BarcodeReader.Init();
 
+        // BarcodeReader.SetImageCallback(function(result) {
+
+        //     if (!result.length) {
+        //         return
+        //     }
+        //     var barcode = result[0];
+        //     if (barcode.Value) {
+        //         alert(barcode.Value);
+        //     }
+        // });
 
 
         // 初始化
@@ -198,15 +210,30 @@
 
                 if (code) {
                     // 二维码中的内容
-                    alert(code.data)
+                    alert("二维码：" + code.data)
                 }
 
-                const yicode = jsQR(imageData, img.width, img.height);
+                // BarcodeReader.DecodeImage(img)
 
-                if (yicode) {
-                    // 一维码中的内容
-                    alert(yicode)
-                }
+                javascriptBarcodeReader({
+                        /* Image ID || HTML5 Image || HTML5 Canvas || HTML5 Canvas ImageData || Image URL */
+                        image: imageData,
+                        barcode: 'code-2of5',
+                        // barcodeType: 'industrial',
+                        options: {
+                            // useAdaptiveThreshold: true // for images with sahded portions
+                            // singlePass: true
+                        }
+                    })
+                    .then(code => {
+                        if (code) {
+                            alert("条形码：" + code)
+                        }
+
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
 
             };
         }
