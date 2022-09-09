@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
- 
+
 <head>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <style>
@@ -108,7 +108,7 @@
         }
     </style>
 </head>
- 
+
 <body>
     <div class="title">扫一扫</div>
     <div class="mask">
@@ -122,9 +122,27 @@
     <canvas id="qrcanvas" style="display:none;"></canvas>
     <!-- 引入二维码解析代码 -->
     <script src="index.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/40076/DecoderWorker.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/40076/exif.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/40076/BarcodeReader.js"></script>
+
     <script>
         init("environment")
-            // 初始化
+        BarcodeReader.Init();
+
+        BarcodeReader.SetImageCallback(function(result) {
+            console.dir("1.===" + JSON.stringify(result));
+            if (!result.length) {
+                return
+            }
+            var barcode = result[0];
+            if (barcode.Value) {
+                alert(barcode.Value);
+            }
+        });
+
+
+        // 初始化
         function init(exact) {
             navigator.mediaDevices.getUserMedia({
                 video: {
@@ -137,7 +155,7 @@
                     height: {
                         ideal: window.innerWidth
                     }
- 
+
                 }
             }).then(stream => {
                 document.getElementById("test").srcObject = stream;
@@ -149,10 +167,10 @@
             player.style.width = window.innerWidth + "px"
             player.style.height = window.innerHeight + "px"
         }
- 
+
         // 每隔一秒钟截取一下图片
         setInterval(screenShot, 1000)
- 
+
         // 截屏
         function screenShot() {
             var id = "test"
@@ -165,9 +183,9 @@
             canvas.getContext("2d").drawImage(player, 0, 0, canvas.width, canvas.height); //截
             var dataURL = canvas.toDataURL("image/png"); //将图片转成base64格式
             base64ToqR(dataURL)
- 
+
         }
- 
+
         // 解析图片中的二维码
         function base64ToqR(data) {
             var c = document.getElementById("qrcanvas");
@@ -184,15 +202,19 @@
                 const code = jsQR(imageData.data, imageData.width, imageData.height, {
                     inversionAttempts: "dontInvert",
                 });
+
+
+
+
                 if (code) {
                     // 二维码中的内容
                     alert(code.data)
                 } else {
-                    console.log("未识别")
+                    BarcodeReader.DecodeImage(img)
                 }
             };
         }
     </script>
 </body>
- 
+
 </html>
