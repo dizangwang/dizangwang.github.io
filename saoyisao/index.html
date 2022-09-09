@@ -141,6 +141,7 @@
             var barcode = result[0];
             if (barcode.Value) {
                 alert(barcode.Value);
+                window.location.reload();
             }
         });
 
@@ -210,6 +211,7 @@
                 if (code) {
                     // 二维码中的内容
                     alert("二维码：" + code.data)
+                    window.location.reload()
                 }
 
             }
