@@ -1,0 +1,44 @@
+<button onclick="createDate()">计数</button>
+
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<div id="num"></div>
+
+<button onclick="deleteDate()">重新开始</button>
+
+<style>
+    button {
+        display: block;
+        width: 100%;
+        height: 100px;
+        background: #758d71;
+        color: #fff;
+        border: 0px;
+    }
+    
+    #num {
+        height: 60px;
+        line-height: 60px;
+        font-size: 30px;
+        text-align: center;
+    }
+</style>
+
+<script>
+    var index = +localStorage.getItem("num");
+
+    document.getElementById("num").innerHTML = index * 10
+
+    function createDate() {
+        var index = +localStorage.getItem("num");
+        index++
+        localStorage.setItem("num", index);
+        document.getElementById("num").innerHTML = index * 10
+    }
+
+    function deleteDate() {
+        localStorage.setItem("num", 0);
+        document.getElementById("num").innerHTML = 0
+    }
+</script>
