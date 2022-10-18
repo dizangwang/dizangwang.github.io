@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .title {
+            text-align: center;
+            position: fixed;
+            left: 0px;
+            top: 20px;
+            width: 100%;
+        }
+        
+        .title select {
+            height: 40px;
+        }
+        
+        #targetImg {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+</head>
+
+<body>
+    <div class="title">
+
+        选择作品：
+        <select id="zuopinId" onchange="zuoPin(this)">
+            <option value="https://img-blog.csdnimg.cn/3fa107befa254b16978d609ac6c194da.jpeg">九月九日忆山东兄弟</option>
+            <option value="https://img-blog.csdnimg.cn/77f1604a82284cc29ba2189cedecdf86.jpeg">林觉民节选</option>
+            <option value="https://img-blog.csdnimg.cn/db7aaff4381440ee89bd6b5b52a6fe10.jpeg">闻王昌龄</option>
+            <option value="https://img-blog.csdnimg.cn/33db42e768e047f5a08d01774f3d6a87.jpeg">长恨歌</option>
+            <option value="https://img-blog.csdnimg.cn/dbdfd5ef636945ad8ac4e03313221120.jpeg">千字文一</option>
+            <option value="https://img-blog.csdnimg.cn/1e84a8359bf94ceb8849e28632c08fa0.jpeg">千字文二</option>
+            <option value="https://img-blog.csdnimg.cn/45b96e8020da4335bd5b2d2d0f5d8ad2.jpeg">千字文三</option>
+            <option value="https://img-blog.csdnimg.cn/64ea920e6cbb4953a4a175bb52473944.jpeg">千字文四</option>
+        </select> &nbsp; 放大倍数：
+
+        <select id="fangdaId" placeholder="放大几倍" onchange="beiShu(this)">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+        </select>
+    </div>
+    <div style="padding-top:80px">
+        <img id="targetImg" src="" alt="请选择图片" />
+    </div>
+    <script>
+        var targetImg = document.getElementById("targetImg");
+        zuoPin(document.getElementById("zuopinId"))
+        beiShu(document.getElementById("fangdaId"))
+
+        function zuoPin(obj) {
+            var val = obj.value;
+            targetImg.src = val;
+        }
+
+        function beiShu(obj) {
+            var val = obj.value;
+            targetImg.style.width = val * parseFloat(window.innerWidth) + "px";
+
+        }
+    </script>
+
+</body>
+
+</html>
