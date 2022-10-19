@@ -7,56 +7,37 @@
             margin: 0px;
         }
         
-        .title {
+        body {
             text-align: center;
-            position: fixed;
-            left: 0px;
-            top: 20px;
-            width: 100%;
         }
         
-        .title select {
-            height: 40px;
-        }
-        
-        #targetImg {
-            width: 100%;
-            height: auto;
+        button {
+            min-width: 45%;
+            margin: 15px 0px;
+            font-size: 18px;
+            min-height: 50px;
         }
     </style>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 </head>
 
 <body>
-    <div class="title">
 
-        作品：
-        <select id="zuopinId" onchange="zuoPin(this)">
-            <option value="https://img-blog.csdnimg.cn/3fa107befa254b16978d609ac6c194da.jpeg">九月九日忆山东兄弟</option>
-            <option value="https://img-blog.csdnimg.cn/77f1604a82284cc29ba2189cedecdf86.jpeg">林觉民节选</option>
-            <option value="https://img-blog.csdnimg.cn/db7aaff4381440ee89bd6b5b52a6fe10.jpeg">闻王昌龄</option>
-            <option value="https://img-blog.csdnimg.cn/33db42e768e047f5a08d01774f3d6a87.jpeg">长恨歌</option>
-            <option value="https://img-blog.csdnimg.cn/dbdfd5ef636945ad8ac4e03313221120.jpeg">千字文一</option>
-            <option value="https://img-blog.csdnimg.cn/1e84a8359bf94ceb8849e28632c08fa0.jpeg">千字文二</option>
-            <option value="https://img-blog.csdnimg.cn/45b96e8020da4335bd5b2d2d0f5d8ad2.jpeg">千字文三</option>
-            <option value="https://img-blog.csdnimg.cn/64ea920e6cbb4953a4a175bb52473944.jpeg">千字文四</option>
-        </select> 
-    </div>
+
+    <a href="https://img-blog.csdnimg.cn/3fa107befa254b16978d609ac6c194da.jpeg"><button>九月九日忆山东兄弟</button></a>
+    <a href="https://img-blog.csdnimg.cn/77f1604a82284cc29ba2189cedecdf86.jpeg"><button>林觉民节选</button></a>
+    <a href="https://img-blog.csdnimg.cn/db7aaff4381440ee89bd6b5b52a6fe10.jpeg"><button>闻王昌龄</button></a>
+    <a href="https://img-blog.csdnimg.cn/33db42e768e047f5a08d01774f3d6a87.jpeg"><button>长恨歌</button></a>
+    <a href="https://img-blog.csdnimg.cn/7889ee2dea4a400cb86629715c03aca7.jpeg"><button>千字文一</button></a>
+    <a href="https://img-blog.csdnimg.cn/d1ee96f3565d4c869e1f152ce8d5e274.jpeg"><button>千字文二</button></a>
+    <a href="https://img-blog.csdnimg.cn/49e1115359884a438d8ca63d8f50e9e8.jpeg"><button>千字文三</button></a>
+    <a href="https://img-blog.csdnimg.cn/4b3792eddda949a2ac32e03ae88db16c.jpeg"><button>千字文四</button></a>
+    <a href="https://img-blog.csdnimg.cn/088a6a80aeb54278b8796c2e919fb17d.jpeg"><button>千字文五</button></a>
+    <a href="https://img-blog.csdnimg.cn/670d40e236eb44ab859f2cb3b83b19dd.jpeg"><button>千字文六</button></a>
+
+
 
     <script>
-        var targetImg = document.getElementById("targetImg");
-
-        function zuoPin(obj) {
-            var val = obj.value;
-            window.location.href=val;
-            //targetImg.src = val;
-        }
-
-        function beiShu(obj) {
-            var val = obj.value;
-            targetImg.style.width = val * parseFloat(window.innerWidth) + "px";
-
-        }
     </script>
 
 </body>
