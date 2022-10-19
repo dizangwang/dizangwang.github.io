@@ -40,31 +40,7 @@
             <option value="https://img-blog.csdnimg.cn/1e84a8359bf94ceb8849e28632c08fa0.jpeg">千字文二</option>
             <option value="https://img-blog.csdnimg.cn/45b96e8020da4335bd5b2d2d0f5d8ad2.jpeg">千字文三</option>
             <option value="https://img-blog.csdnimg.cn/64ea920e6cbb4953a4a175bb52473944.jpeg">千字文四</option>
-        </select> &nbsp; 放大：
-
-        <select id="fangdaId" placeholder="放大几倍" onchange="beiShu(this)">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-        </select>
+        </select> 
     </div>
     <div style="padding-top:80px">
         <img id="targetImg" src="" alt="请选择图片" />
@@ -76,7 +52,8 @@
 
         function zuoPin(obj) {
             var val = obj.value;
-            targetImg.src = val;
+            window.location.href=val;
+            //targetImg.src = val;
         }
 
         function beiShu(obj) {
