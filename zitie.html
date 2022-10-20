@@ -23,21 +23,108 @@
 
 <body>
 
+    <div id="result"></div>
 
-    <a href="https://img-blog.csdnimg.cn/3fa107befa254b16978d609ac6c194da.jpeg"><button>九月九日忆山东兄弟</button></a>
-    <a href="https://img-blog.csdnimg.cn/77f1604a82284cc29ba2189cedecdf86.jpeg"><button>林觉民节选</button></a>
-    <a href="https://img-blog.csdnimg.cn/db7aaff4381440ee89bd6b5b52a6fe10.jpeg"><button>闻王昌龄</button></a>
-    <a href="https://img-blog.csdnimg.cn/33db42e768e047f5a08d01774f3d6a87.jpeg"><button>长恨歌</button></a>
-    <a href="https://img-blog.csdnimg.cn/7889ee2dea4a400cb86629715c03aca7.jpeg"><button>千字文一</button></a>
-    <a href="https://img-blog.csdnimg.cn/d1ee96f3565d4c869e1f152ce8d5e274.jpeg"><button>千字文二</button></a>
-    <a href="https://img-blog.csdnimg.cn/49e1115359884a438d8ca63d8f50e9e8.jpeg"><button>千字文三</button></a>
-    <a href="https://img-blog.csdnimg.cn/4b3792eddda949a2ac32e03ae88db16c.jpeg"><button>千字文四</button></a>
-    <a href="https://img-blog.csdnimg.cn/088a6a80aeb54278b8796c2e919fb17d.jpeg"><button>千字文五</button></a>
-    <a href="https://img-blog.csdnimg.cn/670d40e236eb44ab859f2cb3b83b19dd.jpeg"><button>千字文六</button></a>
+
 
 
 
     <script>
+        var data = [{
+                name: "九月九日忆山东兄弟",
+                url: "https://img-blog.csdnimg.cn/3fa107befa254b16978d609ac6c194da.jpeg"
+            }, {
+                name: "林觉民节选",
+                url: "https://img-blog.csdnimg.cn/77f1604a82284cc29ba2189cedecdf86.jpeg"
+            }, {
+                name: "闻王昌龄",
+                url: "https://img-blog.csdnimg.cn/db7aaff4381440ee89bd6b5b52a6fe10.jpeg"
+            }, {
+                name: "长恨歌",
+                url: "https://img-blog.csdnimg.cn/33db42e768e047f5a08d01774f3d6a87.jpeg"
+            }, {
+                name: "文徵明-千字文一",
+                url: "https://img-blog.csdnimg.cn/7889ee2dea4a400cb86629715c03aca7.jpeg"
+            }, {
+                name: "文徵明-千字文二",
+                url: "https://img-blog.csdnimg.cn/d1ee96f3565d4c869e1f152ce8d5e274.jpeg"
+            }, {
+                name: "文徵明-千字文三",
+                url: "https://img-blog.csdnimg.cn/49e1115359884a438d8ca63d8f50e9e8.jpeg"
+            }, {
+                name: "文徵明-千字文四",
+                url: "https://img-blog.csdnimg.cn/4b3792eddda949a2ac32e03ae88db16c.jpeg"
+            }, {
+                name: "文徵明-千字文五",
+                url: "https://img-blog.csdnimg.cn/088a6a80aeb54278b8796c2e919fb17d.jpeg"
+            }, {
+                name: "文徵明-千字文六",
+                url: "https://img-blog.csdnimg.cn/670d40e236eb44ab859f2cb3b83b19dd.jpeg"
+            },
+
+            {
+                "name": "沈度-赤壁赋一",
+                "url": "https://img-blog.csdnimg.cn/d7c8ab94023e4fefb765cc1da8f6b0c1.jpeg"
+            }, {
+                "name": "沈度-赤壁赋二",
+                "url": "https://img-blog.csdnimg.cn/3cced187c010422aa4b8abe23eaaa453.jpeg"
+            }, {
+                "name": "沈度-赤壁赋三",
+                "url": "https://img-blog.csdnimg.cn/af726b7a261c4fed8bd979588f759d65.jpeg"
+            }, {
+                "name": "沈度-赤壁赋四",
+                "url": "https://img-blog.csdnimg.cn/a79ea59471d24dd9b16450e3922a56ea.jpeg"
+            }, {
+                "name": "沈度-赤壁赋五",
+                "url": "https://img-blog.csdnimg.cn/abf4dc24779640a59851c330358d23dd.jpeg"
+            }, {
+                "name": "沈度-赤壁赋六",
+                "url": "https://img-blog.csdnimg.cn/368b9f9d4ce645fcaeca7943737b903d.jpeg"
+            }, {
+                "name": "沈度-赤壁赋七",
+                "url": "https://img-blog.csdnimg.cn/2f35898ccdbf4598a02b75197f782d84.jpeg"
+            }, {
+                "name": "沈度-赤壁赋八",
+                "url": "https://img-blog.csdnimg.cn/a8999586b79a44fc8911f46435042d65.jpeg"
+            }, {
+                "name": "沈度-心经一",
+                "url": "https://img-blog.csdnimg.cn/98248c394b0d4b50aed8302cc82c5d01.jpeg"
+            }, {
+                "name": "沈度-心经二",
+                "url": "https://img-blog.csdnimg.cn/3d5f258aab724782ad0ee111799787f8.jpeg"
+            }, {
+                "name": "沈度-心经三",
+                "url": "https://img-blog.csdnimg.cn/f5e1da01b16444c89ec8adeef43af432.jpeg"
+            }, {
+                "name": "沈度-心经四",
+                "url": "https://img-blog.csdnimg.cn/d3f0120077444afaa0c4f019129ad133.jpeg"
+            }, {
+                "name": "沈度-心经五",
+                "url": "https://img-blog.csdnimg.cn/5a24a61f283249fdbd8740bf9368e048.jpeg"
+            }, {
+                "name": "沈度-心经六",
+                "url": "https://img-blog.csdnimg.cn/19e016e650b5459f87cee447261a9f92.jpeg"
+            }
+
+
+
+
+
+        ]
+
+        var str = ""
+        data.forEach((item) => {
+
+            str += ` <a href="${item.url}"><button>${item.name}</button></a>`
+
+
+
+
+        })
+
+
+
+        document.getElementById('result').innerHTML = str
     </script>
 
 </body>
