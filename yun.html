@@ -1,0 +1,46 @@
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+<meta charset="utf-8">
+<style>
+.text,#result{
+    font-weight: bolder;
+    text-align: center;
+    font-size: 40px;
+    padding:20px 0px
+}
+#result{
+    font-size: 180px;
+}
+
+
+
+</style>
+
+<div>
+
+
+    <div class="text">距离</div>
+    <div class="text">2023年2月26日</div>
+    <div class="text">还有</div>
+
+    <div id="result">距离2023年2月26日还有</div>
+    <div  class="text">天</div>
+
+
+</div>
+<script>
+
+var date=new Date();
+date.setFullYear(2023,1,26);
+var result=(date.getTime()-new Date().getTime())/1000/24/60/60
+
+document.getElementById("result").innerHTML=Math.round(result)
+
+
+
+
+
+
+
+
+</script>
